@@ -1,2 +1,2 @@
 # OnceMore
-Momna Butt, Zainab Khalid, Saneha Siddique
+Momna Butt, Hiba Noor, Saneha Siddique
