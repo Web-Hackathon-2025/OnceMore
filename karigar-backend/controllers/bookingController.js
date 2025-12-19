@@ -249,3 +249,183 @@ exports.rescheduleBooking = async (req, res) => {
     });
   }
 };
+
+// @desc    Create a booking
+// @route   POST /api/bookings
+// @access  Private (Customer)
+exports.createBooking = async (req, res) => {
+  try {
+    const {
+      serviceProviderId,
+      serviceId,
+      scheduledDate,
+      scheduledTime,
+      description,
+    } = req.body;
+
+    const booking = new Booking({
+      customer: req.user.id,
+      provider: serviceProviderId,
+      service: serviceId,
+      scheduledDate,
+      scheduledTime,
+      description,
+      status: "pending",
+    });
+
+    await booking.save();
+    await booking.populate("customer", "name email phone");
+    await booking.populate("provider", "name email phone");
+    await booking.populate("service", "title serviceType price");
+
+    res.status(201).json({
+      success: true,
+      message: "Booking created successfully",
+      booking,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Error creating booking",
+      error: error.message,
+    });
+  }
+};
+
+// @desc    Get customer bookings
+// @route   GET /api/bookings/my-bookings
+// @access  Private (Customer)
+exports.getCustomerBookings = async (req, res) => {
+  try {
+    const { status } = req.query;
+    const query = { customer: req.user.id };
+
+    if (status) {
+      query.status = status;
+    }
+
+    const bookings = await Booking.find(query)
+      .populate("provider", "name email phone")
+      .populate("service", "title serviceType price")
+      .sort({ createdAt: -1 });
+
+    res.status(200).json({
+      success: true,
+      count: bookings.length,
+      bookings,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Error fetching bookings",
+      error: error.message,
+    });
+  }
+};
+
+// @desc    Get booking by ID
+// @route   GET /api/bookings/:id
+// @access  Private
+exports.getBookingById = async (req, res) => {
+  try {
+    const booking = await Booking.findById(req.params.id)
+      .populate("customer", "name email phone")
+      .populate("provider", "name email phone")
+      .populate("service", "title serviceType price");
+
+    if (!booking) {
+      return res.status(404).json({
+        success: false,
+        message: "Booking not found",
+      });
+    }
+
+    res.status(200).json({
+      success: true,
+      booking,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Error fetching booking",
+      error: error.message,
+    });
+  }
+};
+
+// @desc    Update booking status
+// @route   PUT /api/bookings/:id/status
+// @access  Private
+exports.updateBookingStatus = async (req, res) => {
+  try {
+    const { status } = req.body;
+    const booking = await Booking.findByIdAndUpdate(
+      req.params.id,
+      { status },
+      { new: true }
+    )
+      .populate("customer", "name email phone")
+      .populate("provider", "name email phone")
+      .populate("service", "title serviceType price");
+
+    if (!booking) {
+      return res.status(404).json({
+        success: false,
+        message: "Booking not found",
+      });
+    }
+
+    res.status(200).json({
+      success: true,
+      message: "Booking status updated",
+      booking,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Error updating booking status",
+      error: error.message,
+    });
+  }
+};
+
+// @desc    Add message to booking
+// @route   POST /api/bookings/:id/messages
+// @access  Private
+exports.addMessageToBooking = async (req, res) => {
+  try {
+    const { message } = req.body;
+    const booking = await Booking.findById(req.params.id);
+
+    if (!booking) {
+      return res.status(404).json({
+        success: false,
+        message: "Booking not found",
+      });
+    }
+
+    if (!booking.messages) {
+      booking.messages = [];
+    }
+
+    booking.messages.push({
+      sender: req.user.id,
+      message,
+      timestamp: new Date(),
+    });
+
+    await booking.save();
+
+    res.status(200).json({
+      success: true,
+      message: "Message added to booking",
+      booking,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Error adding message",
+      error: error.message,
+    });
+  }
+};
