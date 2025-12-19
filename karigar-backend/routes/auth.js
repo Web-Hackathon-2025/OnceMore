@@ -17,7 +17,7 @@ router.get('/profile', protect, getProfile);
 router.put('/profile', protect, updateProfile);
 
 // Admin only route example
-router.get('/admin/users', protect, authorize('admin'), async (req, res) => {
+router.get('/admin/users', protect, authorize('admin'), (req, res) => {
     // This route is accessible only by admin
     res.json({ message: 'Admin access granted' });
 });
