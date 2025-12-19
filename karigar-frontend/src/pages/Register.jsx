@@ -1,17 +1,18 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import AuthService from '../services/authService';
 import './Auth.css';
 
 const Register = () => {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     password: '',
     confirmPassword: '',
     phone: '',
-    role: 'customer',
+    role: searchParams.get('role') || 'customer',
     serviceType: '',
   });
   const [error, setError] = useState('');
@@ -26,11 +27,20 @@ const Register = () => {
     { value: 'other', label: 'Other' },
   ];
 
+  useEffect(() => {
+    // Update role if URL parameter changes
+    const roleFromUrl = searchParams.get('role');
+    if (roleFromUrl && ['customer', 'service_provider'].includes(roleFromUrl)) {
+      setFormData(prev => ({ ...prev, role: roleFromUrl }));
+    }
+  }, [searchParams]);
+
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value,
+    }));
     setError('');
   };
 
@@ -69,13 +79,22 @@ const Register = () => {
       const response = await AuthService.register(userData);
       
       if (response.success) {
-        navigate('/dashboard');
+        // Redirect to respective dashboard based on role
+        if (response.user.role === 'service_provider') {
+          navigate('/provider/dashboard');
+        } else {
+          navigate('/dashboard');
+        }
       }
     } catch (err) {
       setError(err.message || 'Registration failed. Please try again.');
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleRoleSelect = (role) => {
+    setFormData(prev => ({ ...prev, role }));
   };
 
   return (
@@ -87,6 +106,34 @@ const Register = () => {
         </div>
 
         <div className="auth-body">
+          {/* Role Selection */}
+          <div className="role-selection">
+            <div className="role-options">
+              <button
+                type="button"
+                className={`role-option ${formData.role === 'customer' ? 'selected' : ''}`}
+                onClick={() => handleRoleSelect('customer')}
+              >
+                <div className="role-icon">👤</div>
+                <div className="role-content">
+                  <h3>Customer</h3>
+                  <p>I want to book services</p>
+                </div>
+              </button>
+              <button
+                type="button"
+                className={`role-option ${formData.role === 'service_provider' ? 'selected' : ''}`}
+                onClick={() => handleRoleSelect('service_provider')}
+              >
+                <div className="role-icon">🔧</div>
+                <div className="role-content">
+                  <h3>Service Provider</h3>
+                  <p>I want to offer services</p>
+                </div>
+              </button>
+            </div>
+          </div>
+
           {error && (
             <div className="alert alert-error">
               {error}
@@ -137,19 +184,6 @@ const Register = () => {
                 placeholder="Enter your phone number"
                 required
               />
-            </div>
-
-            <div className="form-group">
-              <label className="form-label">I want to join as</label>
-              <select
-                name="role"
-                className="form-control"
-                value={formData.role}
-                onChange={handleChange}
-              >
-                <option value="customer">Customer</option>
-                <option value="service_provider">Service Provider</option>
-              </select>
             </div>
 
             {formData.role === 'service_provider' && (
@@ -212,7 +246,7 @@ const Register = () => {
                     <span className="spinner"></span> Creating account...
                   </>
                 ) : (
-                  'Create Account'
+                  `Sign Up as ${formData.role === 'customer' ? 'Customer' : 'Service Provider'}`
                 )}
               </button>
             </div>

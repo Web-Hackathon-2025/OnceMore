@@ -8,6 +8,9 @@ dotenv.config();
 
 // Import routes
 const authRoutes = require('./routes/auth');
+const serviceProviderRoutes = require('./routes/serviceProviderRoutes');
+const bookingRoutes = require('./routes/bookingRoutes');
+const reviewRoutes = require('./routes/reviewRoutes');
 
 // Initialize Express app
 const app = express();
@@ -24,6 +27,11 @@ mongoose.connect(process.env.MONGODB_URI)
 
 // Routes
 app.use('/api/auth', authRoutes);
+app.use('/api/auth', authRoutes);
+app.use('/api/service-providers', serviceProviderRoutes);
+app.use('/api/bookings', bookingRoutes);
+app.use('/api/reviews', reviewRoutes);
+
 
 // Root route
 app.get('/', (req, res) => {
