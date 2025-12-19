@@ -1,0 +1,351 @@
+/* Book Service Page Styles */
+.booking-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 30px;
+    background: linear-gradient(135deg, #f0f9ff 0%, #f0fdf4 100%);
+    border-radius: 15px;
+  }
+  
+  .booking-header h1 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #1e40af;
+    margin-bottom: 15px;
+  }
+  
+  .booking-header p {
+    font-size: 18px;
+    color: #4b5563;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .booking-container {
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 30px;
+  }
+  
+  @media (max-width: 1024px) {
+    .booking-container {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  /* Form Section */
+  .booking-form-section {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-section {
+    margin-bottom: 40px;
+    padding-bottom: 40px;
+    border-bottom: 2px solid #f3f4f6;
+  }
+  
+  .form-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  
+  .form-section h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .form-section h2::before {
+    content: '';
+    width: 4px;
+    height: 24px;
+    background: linear-gradient(to bottom, #2563eb, #16a34a);
+    border-radius: 2px;
+  }
+  
+  /* Time Slots Grid */
+  .time-slots-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 12px;
+    margin-top: 10px;
+  }
+  
+  .time-slot-btn {
+    padding: 15px;
+    background: white;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #4b5563;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: center;
+  }
+  
+  .time-slot-btn:hover {
+    border-color: #2563eb;
+    color: #2563eb;
+    transform: translateY(-2px);
+  }
+  
+  .time-slot-btn.selected {
+    background: #2563eb;
+    border-color: #2563eb;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+  }
+  
+  /* Form Actions */
+  .form-actions {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-end;
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 2px solid #f3f4f6;
+  }
+  
+  .form-actions .btn {
+    min-width: 200px;
+  }
+  
+  @media (max-width: 768px) {
+    .form-actions {
+      flex-direction: column;
+    }
+    
+    .form-actions .btn {
+      width: 100%;
+    }
+  }
+  
+  /* Summary Section */
+  .booking-summary-section {
+    position: sticky;
+    top: 30px;
+    height: fit-content;
+  }
+  
+  .summary-card {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border: 2px solid #e5e7eb;
+  }
+  
+  .summary-card h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 25px;
+    text-align: center;
+  }
+  
+  /* Provider Summary */
+  .provider-summary {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-bottom: 25px;
+    padding-bottom: 25px;
+    border-bottom: 2px solid #f3f4f6;
+  }
+  
+  .provider-avatar-small {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2563eb, #16a34a);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+  
+  .provider-details h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #111827;
+    margin: 0 0 5px 0;
+  }
+  
+  .provider-rating {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #f59e0b;
+    font-size: 14px;
+  }
+  
+  .provider-rating span {
+    color: #6b7280;
+  }
+  
+  /* Summary Details */
+  .summary-details {
+    margin-bottom: 25px;
+  }
+  
+  .summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #f3f4f6;
+  }
+  
+  .summary-row:last-child {
+    border-bottom: none;
+  }
+  
+  .summary-row span:first-child {
+    color: #6b7280;
+  }
+  
+  .summary-row strong {
+    color: #111827;
+    font-weight: 600;
+    text-align: right;
+  }
+  
+  /* Price Summary */
+  .price-summary {
+    background: #f8fafc;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 25px;
+    border: 1px solid #e2e8f0;
+  }
+  
+  .price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 600;
+  }
+  
+  .price {
+    font-size: 28px;
+    color: #2563eb;
+  }
+  
+  .price-note {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #6b7280;
+    font-style: italic;
+  }
+  
+  /* Terms Section */
+  .terms-section {
+    margin-top: 25px;
+    padding-top: 25px;
+    border-top: 2px solid #f3f4f6;
+  }
+  
+  .terms-section h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 15px;
+  }
+  
+  .terms-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .terms-list li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 10px;
+    color: #4b5563;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  
+  .terms-list li:before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #2563eb;
+    font-size: 18px;
+  }
+  
+  /* Alert Messages */
+  .alert {
+    padding: 15px;
+    border-radius: 8px;
+    margin: 20px 0;
+    font-size: 14px;
+  }
+  
+  .alert-warning {
+    background: #fef3c7;
+    color: #92400e;
+    border: 1px solid #fde68a;
+  }
+  
+  /* Loading States */
+  .spinner {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 1s ease-in-out infinite;
+    vertical-align: middle;
+    margin-right: 8px;
+  }
+  
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .booking-header {
+      padding: 20px;
+    }
+    
+    .booking-header h1 {
+      font-size: 28px;
+    }
+    
+    .booking-header p {
+      font-size: 16px;
+    }
+    
+    .booking-form-section {
+      padding: 20px;
+    }
+    
+    .form-section h2 {
+      font-size: 20px;
+    }
+    
+    .time-slots-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .booking-summary-section {
+      position: static;
+    }
+  }

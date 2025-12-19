@@ -24,6 +24,7 @@ const Header = () => {
           <ul className="navbar-nav">
             {user ? (
               <>
+<<<<<<< HEAD
                 <li>
                   <Link to="/dashboard" className="nav-link">
                     Dashboard
@@ -42,12 +43,52 @@ const Header = () => {
                       Provider Dashboard
                     </Link>
                   </li>
+=======
+                {user.role === 'customer' ? (
+                  <>
+                    <li>
+                      <Link to="/dashboard" className="nav-link">
+                        Dashboard
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/services" className="nav-link">
+                        Find Services
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/my-bookings" className="nav-link">
+                        My Bookings
+                      </Link>
+                    </li>
+                  </>
+                ) : (
+                  <>
+                    <li>
+                      <Link to="/provider/dashboard" className="nav-link">
+                        Dashboard
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/provider/bookings" className="nav-link">
+                        Bookings
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/provider/earnings" className="nav-link">
+                        Earnings
+                      </Link>
+                    </li>
+                  </>
+>>>>>>> 23afb30c2d787357d677d9cc1d8ed923536aef68
                 )}
+                
                 <li>
-                  <Link to="/profile" className="nav-link">
+                  <Link to={user.role === 'customer' ? '/profile' : '/provider/profile'} className="nav-link">
                     Profile
                   </Link>
                 </li>
+                
                 <li>
                   <button onClick={handleLogout} className="btn btn-outline">
                     Logout
@@ -56,6 +97,11 @@ const Header = () => {
               </>
             ) : (
               <>
+                <li>
+                  <Link to="/" className="nav-link">
+                    Home
+                  </Link>
+                </li>
                 <li>
                   <Link to="/login" className="nav-link">
                     Login
