@@ -38,8 +38,8 @@ const Header = () => {
                 )}
                 {user.role === 'service_provider' && (
                   <li>
-                    <Link to="/bookings" className="nav-link">
-                      My Bookings
+                    <Link to="/provider-dashboard" className="nav-link">
+                      Provider Dashboard
                     </Link>
                   </li>
                 )}
