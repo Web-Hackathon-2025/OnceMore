@@ -31,10 +31,18 @@ const UserSchema = new mongoose.Schema({
         type: String,
         validate: {
             validator: function(v) {
-                return /^[0-9]{10}$/.test(v);
+                return !v || /^[0-9]{10}$/.test(v);
             },
             message: 'Please provide a valid 10-digit phone number'
         }
+    },
+    serviceType: {
+        type: String,
+        trim: true
+    },
+    isAvailable: {
+        type: Boolean,
+        default: true
     }
 }, {
     timestamps: true
