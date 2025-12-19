@@ -1,0 +1,633 @@
+/* Service Provider Detail Page Styles */
+.breadcrumb {
+    color: #6b7280;
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+  
+  .breadcrumb a {
+    color: #2563eb;
+    text-decoration: none;
+  }
+  
+  .breadcrumb a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Provider Header Card */
+  .provider-header-card {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .provider-header-content {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+  
+  .provider-avatar-large {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2563eb, #16a34a);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+  
+  .provider-header-info {
+    flex: 1;
+    min-width: 300px;
+  }
+  
+  .provider-header-info h1 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #111827;
+    margin: 0 0 15px 0;
+  }
+  
+  .provider-tags {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  
+  .tag {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  
+  .tag-primary {
+    background: #dbeafe;
+    color: #1e40af;
+  }
+  
+  .tag-secondary {
+    background: #d1fae5;
+    color: #065f46;
+  }
+  
+  .tag-outline {
+    background: transparent;
+    border: 1px solid #d1d5db;
+    color: #4b5563;
+  }
+  
+  .provider-rating-large {
+    margin-bottom: 25px;
+  }
+  
+  .rating-stars {
+    color: #f59e0b;
+    font-size: 24px;
+    margin-bottom: 8px;
+  }
+  
+  .rating-details {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #6b7280;
+  }
+  
+  .rating-details strong {
+    font-size: 20px;
+    color: #111827;
+  }
+  
+  .booking-count {
+    color: #059669;
+    font-weight: 500;
+  }
+  
+  .provider-stats {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+  
+  .stat-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .stat-icon {
+    font-size: 24px;
+    width: 50px;
+    height: 50px;
+    background: #f3f4f6;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .stat-value {
+    font-size: 20px;
+    font-weight: 700;
+    color: #111827;
+  }
+  
+  .stat-label {
+    font-size: 14px;
+    color: #6b7280;
+  }
+  
+  /* Actions Sidebar */
+  .provider-actions-sidebar {
+    width: 300px;
+    flex-shrink: 0;
+  }
+  
+  .pricing-card {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 20px;
+    border: 1px solid #e2e8f0;
+  }
+  
+  .pricing-card h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 20px 0;
+    color: #111827;
+  }
+  
+  .price-rate {
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
+    margin-bottom: 15px;
+  }
+  
+  .price {
+    font-size: 36px;
+    font-weight: 700;
+    color: #2563eb;
+  }
+  
+  .unit {
+    font-size: 16px;
+    color: #6b7280;
+  }
+  
+  .daily-rate {
+    color: #059669;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+  
+  .min-booking {
+    color: #6b7280;
+    font-size: 14px;
+  }
+  
+  .btn-block {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  /* Tabs */
+  .tabs-container {
+    margin-bottom: 30px;
+  }
+  
+  .tabs {
+    display: flex;
+    gap: 1px;
+    background: #e5e7eb;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .tab {
+    flex: 1;
+    padding: 20px;
+    background: white;
+    border: none;
+    font-size: 16px;
+    font-weight: 500;
+    color: #6b7280;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: center;
+  }
+  
+  .tab:hover {
+    background: #f9fafb;
+    color: #2563eb;
+  }
+  
+  .tab.active {
+    background: #2563eb;
+    color: white;
+  }
+  
+  /* Tab Content */
+  .tab-content {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Overview Content */
+  .overview-section {
+    margin-bottom: 40px;
+  }
+  
+  .overview-section:last-child {
+    margin-bottom: 0;
+  }
+  
+  .overview-section h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 20px;
+  }
+  
+  .description {
+    line-height: 1.7;
+    color: #4b5563;
+    font-size: 16px;
+  }
+  
+  .skills-grid {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  
+  .skill-tag {
+    padding: 8px 16px;
+    background: #e5e7eb;
+    border-radius: 20px;
+    font-size: 14px;
+    color: #4b5563;
+  }
+  
+  .location-info p {
+    margin: 8px 0;
+    color: #4b5563;
+  }
+  
+  /* Reviews Content */
+  .reviews-content {
+    max-width: 800px;
+  }
+  
+  .rating-summary {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+  }
+  
+  .overall-rating {
+    text-align: center;
+  }
+  
+  .rating-number {
+    font-size: 48px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 10px;
+  }
+  
+  .rating-stars-large {
+    color: #f59e0b;
+    font-size: 24px;
+    margin-bottom: 8px;
+  }
+  
+  .rating-count {
+    color: #6b7280;
+  }
+  
+  .rating-breakdown {
+    flex: 1;
+    min-width: 300px;
+  }
+  
+  .breakdown-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 12px;
+  }
+  
+  .breakdown-row span:first-child {
+    width: 60px;
+    color: #4b5563;
+  }
+  
+  .progress-bar {
+    flex: 1;
+    height: 8px;
+    background: #e5e7eb;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  
+  .progress-fill {
+    height: 100%;
+    background: #f59e0b;
+  }
+  
+  .breakdown-row span:last-child {
+    width: 40px;
+    text-align: right;
+    color: #6b7280;
+  }
+  
+  /* Reviews List */
+  .reviews-list {
+    margin-bottom: 30px;
+  }
+  
+  .review-card {
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 20px;
+  }
+  
+  .review-card:last-child {
+    margin-bottom: 0;
+  }
+  
+  .review-header {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .reviewer-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2563eb, #16a34a);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 600;
+  }
+  
+  .reviewer-info {
+    flex: 1;
+  }
+  
+  .reviewer-info h4 {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 5px 0;
+    color: #111827;
+  }
+  
+  .review-date {
+    font-size: 14px;
+    color: #6b7280;
+  }
+  
+  .review-rating {
+    color: #f59e0b;
+    font-size: 18px;
+  }
+  
+  .review-comment {
+    line-height: 1.6;
+    color: #4b5563;
+    margin-bottom: 15px;
+  }
+  
+  .review-images {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  
+  .review-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .loading-reviews {
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+  }
+  
+  .no-reviews {
+    text-align: center;
+    padding: 40px;
+    color: #6b7280;
+  }
+  
+  /* Availability Content */
+  .availability-content {
+    max-width: 800px;
+  }
+  
+  .availability-section {
+    margin-bottom: 40px;
+  }
+  
+  .availability-section h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 20px;
+  }
+  
+  .date-picker {
+    margin-bottom: 30px;
+  }
+  
+  .date-picker label {
+    display: block;
+    margin-bottom: 15px;
+    font-weight: 500;
+    color: #4b5563;
+  }
+  
+  .date-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 15px;
+  }
+  
+  .date-option {
+    padding: 15px;
+    background: white;
+    border: 2px solid #e5e7eb;
+    border-radius: 10px;
+    font-size: 14px;
+    color: #4b5563;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: center;
+  }
+  
+  .date-option:hover {
+    border-color: #2563eb;
+    color: #2563eb;
+  }
+  
+  .date-option.active {
+    background: #2563eb;
+    border-color: #2563eb;
+    color: white;
+  }
+  
+  .availability-result {
+    margin-top: 30px;
+  }
+  
+  .availability-result h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #111827;
+  }
+  
+  .time-slots {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  
+  .time-slot {
+    padding: 12px 20px;
+    background: white;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #4b5563;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  
+  .time-slot:hover {
+    border-color: #2563eb;
+    color: #2563eb;
+  }
+  
+  .no-slots,
+  .not-available {
+    color: #dc2626;
+    padding: 20px;
+    background: #fef2f2;
+    border-radius: 8px;
+    text-align: center;
+  }
+  
+  /* Weekly Schedule */
+  .weekly-schedule h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 20px;
+  }
+  
+  .schedule-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+  }
+  
+  .schedule-day {
+    background: #f9fafb;
+    border-radius: 10px;
+    padding: 20px;
+    border: 1px solid #e5e7eb;
+  }
+  
+  .day-name {
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 10px;
+  }
+  
+  .day-status {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+  }
+  
+  .status-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+  
+  .status-indicator.available {
+    background: #10b981;
+  }
+  
+  .status-indicator.unavailable {
+    background: #ef4444;
+  }
+  
+  .day-status.available {
+    color: #059669;
+  }
+  
+  .day-status.unavailable {
+    color: #dc2626;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .provider-header-content {
+      flex-direction: column;
+    }
+    
+    .provider-actions-sidebar {
+      width: 100%;
+    }
+    
+    .tabs {
+      flex-direction: column;
+    }
+    
+    .rating-summary {
+      flex-direction: column;
+      gap: 30px;
+    }
+    
+    .provider-stats {
+      flex-direction: column;
+      gap: 20px;
+    }
+    
+    .date-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .schedule-grid {
+      grid-template-columns: 1fr;
+    }
+  }
