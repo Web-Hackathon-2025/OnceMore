@@ -8,6 +8,8 @@ dotenv.config();
 
 // Import routes
 const authRoutes = require('./routes/auth');
+const serviceRoutes = require('./routes/services');
+const bookingRoutes = require('./routes/bookings');
 
 // Initialize Express app
 const app = express();
@@ -24,6 +26,8 @@ mongoose.connect(process.env.MONGODB_URI)
 
 // Routes
 app.use('/api/auth', authRoutes);
+app.use('/api/services', serviceRoutes);
+app.use('/api/bookings', bookingRoutes);
 
 // Root route
 app.get('/', (req, res) => {
